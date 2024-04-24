@@ -1,0 +1,1178 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"PayloadType": {
+				"properties": {
+					"eventType": {
+						"type": "string"
+					},
+					"dustAmount": {
+						"type": "number",
+						"format": "double"
+					},
+					"signature": {
+						"type": "string"
+					},
+					"amountSats": {
+						"type": "number",
+						"format": "double"
+					},
+					"revealFee": {
+						"type": "number",
+						"format": "double"
+					},
+					"memo": {
+						"type": "string"
+					},
+					"lengthOfMemo": {
+						"type": "number",
+						"format": "double"
+					},
+					"cname": {
+						"type": "string"
+					},
+					"lengthOfCname": {
+						"type": "number",
+						"format": "double"
+					},
+					"stacksAddress": {
+						"type": "string"
+					},
+					"prinType": {
+						"type": "number",
+						"format": "double"
+					},
+					"opcode": {
+						"type": "string"
+					},
+					"spendingAddress": {
+						"type": "string"
+					},
+					"burnBlockTime": {
+						"type": "number",
+						"format": "double"
+					},
+					"burnBlockHeight": {
+						"type": "number",
+						"format": "double"
+					},
+					"txIndex": {
+						"type": "number",
+						"format": "double"
+					},
+					"sbtcWallet": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"amountSats"
+				],
+				"type": "object"
+			},
+			"BalanceI": {
+				"properties": {
+					"balance": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"balance"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"AddressHiroObject": {
+				"properties": {
+					"non_fungible_tokens": {},
+					"fungible_tokens": {},
+					"stx": {
+						"properties": {
+							"burnchain_unlock_height": {
+								"type": "number",
+								"format": "double"
+							},
+							"burnchain_lock_height": {
+								"type": "number",
+								"format": "double"
+							},
+							"lock_height": {
+								"type": "number",
+								"format": "double"
+							},
+							"locked": {
+								"type": "number",
+								"format": "double"
+							},
+							"lock_tx_id": {
+								"type": "string"
+							},
+							"total_received": {
+								"type": "number",
+								"format": "double"
+							},
+							"total_sent": {
+								"type": "number",
+								"format": "double"
+							},
+							"balance": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"burnchain_unlock_height",
+							"burnchain_lock_height",
+							"lock_height",
+							"locked",
+							"lock_tx_id",
+							"total_received",
+							"total_sent",
+							"balance"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"non_fungible_tokens",
+					"fungible_tokens",
+					"stx"
+				],
+				"type": "object"
+			},
+			"AddressMempoolObject": {
+				"properties": {
+					"mempool_stats": {
+						"properties": {
+							"tx_count": {
+								"type": "number",
+								"format": "double"
+							},
+							"spent_txo_sum": {
+								"type": "number",
+								"format": "double"
+							},
+							"spent_txo_count": {
+								"type": "number",
+								"format": "double"
+							},
+							"funded_txo_sum": {
+								"type": "number",
+								"format": "double"
+							},
+							"funded_txo_count": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"tx_count",
+							"spent_txo_sum",
+							"spent_txo_count",
+							"funded_txo_sum",
+							"funded_txo_count"
+						],
+						"type": "object"
+					},
+					"chain_stats": {
+						"properties": {
+							"tx_count": {
+								"type": "number",
+								"format": "double"
+							},
+							"spent_txo_sum": {
+								"type": "number",
+								"format": "double"
+							},
+							"spent_txo_count": {
+								"type": "number",
+								"format": "double"
+							},
+							"funded_txo_sum": {
+								"type": "number",
+								"format": "double"
+							},
+							"funded_txo_count": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"tx_count",
+							"spent_txo_sum",
+							"spent_txo_count",
+							"funded_txo_sum",
+							"funded_txo_count"
+						],
+						"type": "object"
+					},
+					"address": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"mempool_stats",
+					"chain_stats",
+					"address"
+				],
+				"type": "object"
+			},
+			"AddressObject": {
+				"properties": {
+					"btcPubkeySegwit1": {
+						"type": "string"
+					},
+					"btcPubkeySegwit0": {
+						"type": "string"
+					},
+					"ordinalInfo": {
+						"$ref": "#/components/schemas/AddressMempoolObject"
+					},
+					"cardinalInfo": {
+						"$ref": "#/components/schemas/AddressMempoolObject"
+					},
+					"bnsNameInfo": {},
+					"stacksTokenInfo": {
+						"$ref": "#/components/schemas/AddressHiroObject"
+					},
+					"stxBalance": {
+						"type": "number",
+						"format": "double"
+					},
+					"sBTCBalance": {
+						"type": "number",
+						"format": "double"
+					},
+					"ordinal": {
+						"type": "string"
+					},
+					"cardinal": {
+						"type": "string"
+					},
+					"stxAddress": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"stxBalance",
+					"sBTCBalance",
+					"ordinal",
+					"cardinal",
+					"stxAddress"
+				],
+				"type": "object"
+			},
+			"SbtcContractDataType": {
+				"properties": {
+					"burnHeight": {
+						"type": "number",
+						"format": "double"
+					},
+					"name": {
+						"type": "string"
+					},
+					"decimals": {
+						"type": "number",
+						"format": "double"
+					},
+					"totalSupply": {
+						"type": "number",
+						"format": "double"
+					},
+					"threshold": {
+						"type": "number",
+						"format": "double"
+					},
+					"tokenUri": {
+						"type": "string"
+					},
+					"tradingHalted": {
+						"type": "boolean"
+					},
+					"numParties": {
+						"type": "number",
+						"format": "double"
+					},
+					"numKeys": {
+						"type": "number",
+						"format": "double"
+					},
+					"sbtcWalletPublicKey": {
+						"type": "string"
+					},
+					"sbtcWalletAddress": {
+						"type": "string"
+					},
+					"contractOwner": {
+						"type": "string"
+					},
+					"contractId": {
+						"type": "string"
+					},
+					"coordinator": {
+						"properties": {
+							"key": {
+								"type": "string"
+							},
+							"addr": {
+								"properties": {
+									"value": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"value"
+								],
+								"type": "object"
+							}
+						},
+						"required": [
+							"key",
+							"addr"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"sbtcWalletPublicKey",
+					"sbtcWalletAddress",
+					"contractOwner",
+					"contractId"
+				],
+				"type": "object"
+			},
+			"SbtcClarityEvent": {
+				"properties": {
+					"payloadData": {
+						"$ref": "#/components/schemas/PayloadType"
+					},
+					"bitcoinTxid": {
+						"properties": {
+							"payload": {
+								"properties": {
+									"value": {
+										"type": "string"
+									},
+									"type": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"value",
+									"type"
+								],
+								"type": "object"
+							},
+							"notification": {
+								"properties": {
+									"value": {
+										"type": "string"
+									},
+									"type": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"value",
+									"type"
+								],
+								"type": "object"
+							}
+						},
+						"required": [
+							"payload",
+							"notification"
+						],
+						"type": "object"
+					},
+					"txid": {
+						"type": "string"
+					},
+					"eventIndex": {
+						"type": "number",
+						"format": "double"
+					},
+					"contractId": {
+						"type": "string"
+					},
+					"_id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"payloadData",
+					"bitcoinTxid",
+					"txid",
+					"eventIndex",
+					"contractId",
+					"_id"
+				],
+				"type": "object"
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "bridge-api",
+		"version": "1.0.0",
+		"description": "Enables caching of contract data for the sBTC Bridge app",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/bridge-api/{network}/v1/btc/blocks/gettxoutproof/{txs}/{blockhash}": {
+			"get": {
+				"operationId": "GetTxOutProof",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "txs",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "blockhash",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/btc/blocks/block/{blockhash}/{verbosity}": {
+			"get": {
+				"operationId": "GetBlock",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "blockhash",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "verbosity",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/btc/blocks/block-header/{blockhash}/{verbosity}": {
+			"get": {
+				"operationId": "GetHeader",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "blockhash",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "verbosity",
+						"required": true,
+						"schema": {
+							"type": "boolean"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/build/deposit/{stxAddress}": {
+			"get": {
+				"operationId": "CommitDepositData",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"description": "Builds the sBTC deposit data for the op_return variant of the protocol.\nReturns the hex encoded data as a string.",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "stxAddress",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/build/deposit/op_drop/{stxAddress}/{revealFee}": {
+			"get": {
+				"operationId": "CommitDepositDataOpDrop",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"description": "Builds the sBTC deposit data for the op_drop variant of the protocol.\nReturns the hex encoded data as a string.",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "stxAddress",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "revealFee",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/parse/deposit/{data}": {
+			"get": {
+				"operationId": "CommitDeposit",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PayloadType"
+								}
+							}
+						}
+					}
+				},
+				"description": "Parses the sBTC withdraw request data.\nReturns the hex encoded data as a string.",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "data",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/build/withdrawal/{signature}/{amount}": {
+			"get": {
+				"operationId": "CommitWithdrawalData",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"description": "Builds the sBTC withdraw request data for the op_return variant of the protocol.\nReturns the hex encoded data as a string.",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "signature",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "amount",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/build/withdrawal/op_drop/{signature}/{amount}": {
+			"get": {
+				"operationId": "CommitWithdrawalDataOpDrop",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"description": "Builds the sBTC withdraw request data for the op_drop variant of the protocol.\nReturns the hex encoded data as a string.",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "signature",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "amount",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/parse/withdrawal/{data}/{sbtcWallet}": {
+			"get": {
+				"operationId": "CommitWithdrawal",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PayloadType"
+								}
+							}
+						}
+					}
+				},
+				"description": "Parses the sBTC withdraw request data.\nReturns the hex encoded data as a string.",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "data",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "sbtcWallet",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/parse/tx/{txid}": {
+			"get": {
+				"operationId": "ParseTransaction",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PayloadType"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "txid",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/init-ui": {
+			"get": {
+				"operationId": "InitUi",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/address/{address}/balance": {
+			"get": {
+				"operationId": "FetchUserSbtcBalance",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BalanceI"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "address",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/address/balances/{stxAddress}/{cardinal}/{ordinal}": {
+			"get": {
+				"operationId": "FetchUserBalances",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AddressObject"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "stxAddress",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "cardinal",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "ordinal",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/data": {
+			"get": {
+				"operationId": "FetchSbtcContractData",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SbtcContractDataType"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/bridge-api/{network}/v1/sbtc/wallet-address": {
+			"get": {
+				"operationId": "FetchSbtcWalletAddress",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/bridge-api/{network}/v1/events/index/stacks/{txid}": {
+			"get": {
+				"operationId": "IndexSbtcEvent",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "txid",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/events/save/{page}": {
+			"get": {
+				"operationId": "SaveSbtcEvents",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SbtcClarityEvent"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "page",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/events/filter/{name}/{value}": {
+			"get": {
+				"operationId": "FindSbtcEventsByFilter",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SbtcClarityEvent"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "name",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/events/find-all": {
+			"get": {
+				"operationId": "FindAllSbtcEvents",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"events": {
+											"type": "number",
+											"format": "double"
+										},
+										"results": {
+											"items": {
+												"$ref": "#/components/schemas/SbtcClarityEvent"
+											},
+											"type": "array"
+										}
+									},
+									"required": [
+										"events",
+										"results"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/bridge-api/{network}/v1/events/find-by/page/{page}/{limit}": {
+			"get": {
+				"operationId": "FindSbtcEventsByPage",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"events": {
+											"type": "number",
+											"format": "double"
+										},
+										"results": {
+											"items": {
+												"$ref": "#/components/schemas/SbtcClarityEvent"
+											},
+											"type": "array"
+										}
+									},
+									"required": [
+										"events",
+										"results"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "page",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "limit",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/events/find-by/filter-and-page/{filter}/{page}/{limit}": {
+			"get": {
+				"operationId": "FindSbtcEventsByFilterAndPage",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"events": {
+											"type": "number",
+											"format": "double"
+										},
+										"results": {
+											"items": {
+												"$ref": "#/components/schemas/SbtcClarityEvent"
+											},
+											"type": "array"
+										}
+									},
+									"required": [
+										"events",
+										"results"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "page",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "limit",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/bridge-api/{network}/v1/events/count": {
+			"get": {
+				"operationId": "CountSbtcEvents",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"events": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"events"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
