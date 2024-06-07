@@ -8,7 +8,7 @@ import { parseRawPayload } from "./payload_type_parser.js";
 import { pox4BitcoinStacksTxCollection } from "../../../lib/data/db_models.js";
 import { PoxEntry } from "../../../types/pox_types.js";
 
-export const MAGIC_BYTES_TESTNET = '5432';  // 
+export const MAGIC_BYTES_TESTNET = '5432'; 
 export const MAGIC_BYTES_TESTNET_NAK = '4e33';
 export const MAGIC_BYTES_MAINNET = '5832';
 export const MAGIC_BYTES_MAINNET_NAK = '5832';
