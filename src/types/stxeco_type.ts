@@ -110,9 +110,7 @@ export type ProposalMeta = {
   synopsis: string; 
   description: string; 
 }
-export type DaoData = {
-  inFlight: {
-    name: string;
-    txid: string;
-  }|undefined
+export type InFlight = {
+  name?: string;
+  txid?: string;
 }
