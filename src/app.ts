@@ -1,26 +1,26 @@
-import { isDevenv, setConfigOnStart, getConfig, isLocalTestnet, isDev, printConfig } from './lib/config.js';
+import { isDevenv, setConfigOnStart, getConfig, isLocalTestnet, isDev, printConfig } from './lib/config';
 import bodyParser from "body-parser";
 import swaggerUi from 'swagger-ui-express';
 import express, { Application } from "express";
 import morgan from "morgan";
-import { initUiCacheJob, pox4EventsJob } from './routes/schedules/JobScheduler.js';
+import { initUiCacheJob, pox4EventsJob } from './routes/schedules/JobScheduler';
 import cors from "cors";
-import { connect, getExchangeRates } from './lib/data/db_models.js'
+import { connect, getExchangeRates } from './lib/data/db_models'
 import { WebSocketServer } from 'ws'
-import { configRoutes } from './routes/configRoutes.js'
-import { bitcoinRoutes } from './routes/bitcoinRoutes.js'
-import { sbtcRoutes } from './routes/sbtcRoutes.js'
-import { daoRoutes } from './routes/daoRoutes.js'
-import { poxRoutes } from './routes/pox/poxRoutes.js'
-import { pox4Routes } from './routes/v4/pox/pox4Routes.js'
-import { pox4ContractRoutes } from './routes/v4/pox-contract/pox4ContractRoutes.js'
-import { signersContractRoutes } from './routes/v4/signers/signersContractRoutes.js'
-import { miningContractRoutes } from './routes/v4/mining/miningContractRoutes.js'
-import { pox4EventRoutes } from './routes/v4/pox-events/pox4EventRoutes.js'
-import { eventsRoutes } from './routes/eventsRoutes.js'
+import { configRoutes } from './routes/configRoutes'
+import { bitcoinRoutes } from './routes/bitcoinRoutes'
+import { sbtcRoutes } from './routes/sbtcRoutes'
+import { daoRoutes } from './routes/daoRoutes'
+import { poxRoutes } from './routes/pox/poxRoutes'
+import { pox4Routes } from './routes/v4/pox/pox4Routes'
+import { pox4ContractRoutes } from './routes/v4/pox-contract/pox4ContractRoutes'
+import { signersContractRoutes } from './routes/v4/signers/signersContractRoutes'
+import { miningContractRoutes } from './routes/v4/mining/miningContractRoutes'
+import { pox4EventRoutes } from './routes/v4/pox-events/pox4EventRoutes'
+import { eventsRoutes } from './routes/eventsRoutes'
 import { createRequire } from 'node:module';
-import { authorised } from './lib/utils_stacks.js';
-import { printDaoConfig, setDaoConfig } from './lib/config_dao.js';
+import { authorised } from './lib/utils_stacks';
+import { printDaoConfig, setDaoConfig } from './lib/config_dao';
 const r = createRequire(import.meta.url);
 // - assertions are experimental.. import swaggerDocument from '../public/swagger.json' assert { type: "json" };;
 const swaggerDocument = r('./swagger.json');

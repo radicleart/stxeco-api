@@ -7,7 +7,6 @@ import { sendRawTxDirectBlockCypher, fetchCurrentFeeRates as fetchCurrentFeeRate
 import { findBridgeTransactionById } from "../../lib/data/db_models.js";
 import { getConfig } from '../../lib/config.js';
 import { fetchTransactionHex } from '../../lib/bitcoin/api_mempool.js';
-import { schnorr } from '@noble/curves/secp256k1';
 import { hex, base64 } from '@scure/base';
 import type { Transaction } from '@scure/btc-signer'
 import type { KeySet, WrappedPSBT, BridgeTransactionType, CommitmentScriptDataType } from 'sbtc-bridge-lib'
@@ -17,6 +16,7 @@ import { verifyMessageSignatureRsv } from '@stacks/encryption';
 import { hashMessage } from '@stacks/encryption';
 import { updateBridgeTransaction } from '../../lib/data/db_models.js';
 import { getExchangeRates } from '../../lib/data/db_models.js'
+import { TransactionInput } from "@scure/btc-signer/lib/psbt.js";
 
 
 export interface FeeEstimateResponse {
@@ -119,7 +119,7 @@ export class TransactionController {
     //console.log('sign: commitAddressScript: ', commitAddressScript);
   
     const commitTx = await fetchRawTx(pegin.btcTxid, true)
-    const nextI:btc.TransactionInput = {
+    const nextI:TransactionInput = {
       txid: hex.decode(pegin.btcTxid),
       index: 0,
       nonWitnessUtxo: (commitTx.hex),
